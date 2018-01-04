@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "Roboto";
+  src: url($static-folder-path + "fonts/roboto/e31fcf1885e371e19f5786c2bdfeae1b.eot");
+  src: url($static-folder-path + "fonts/roboto/e31fcf1885e371e19f5786c2bdfeae1b.eot?#iefix") format("embedded-opentype"),
+  url($static-folder-path + "fonts/roboto/e31fcf1885e371e19f5786c2bdfeae1b.woff2") format("woff2"),
+  url($static-folder-path + "fonts/roboto/e31fcf1885e371e19f5786c2bdfeae1b.woff") format("woff"),
+  url($static-folder-path + "fonts/roboto/e31fcf1885e371e19f5786c2bdfeae1b.ttf") format("truetype"),
+  url($static-folder-path + "fonts/roboto/e31fcf1885e371e19f5786c2bdfeae1b.svg#Roboto Bold V2") format("svg");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url($static-folder-path + "fonts/roboto/9745415b8a2a8b9a2480a12f7e2d3ad3.eot");
+  src: url($static-folder-path + "fonts/roboto/9745415b8a2a8b9a2480a12f7e2d3ad3.eot?#iefix") format("embedded-opentype"),
+  url($static-folder-path + "fonts/roboto/9745415b8a2a8b9a2480a12f7e2d3ad3.woff2") format("woff2"),
+  url($static-folder-path + "fonts/roboto/9745415b8a2a8b9a2480a12f7e2d3ad3.woff") format("woff"),
+  url($static-folder-path + "fonts/roboto/9745415b8a2a8b9a2480a12f7e2d3ad3.ttf") format("truetype"),
+  url($static-folder-path + "fonts/roboto/9745415b8a2a8b9a2480a12f7e2d3ad3.svg#Roboto Bold V2") format("svg");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url($static-folder-path + "fonts/roboto/df7b648ce5356ea1ebce435b3459fd60.eot");
+  src: url($static-folder-path + "fonts/roboto/df7b648ce5356ea1ebce435b3459fd60.eot?#iefix") format("embedded-opentype"), url($static-folder-path + "fonts/roboto/df7b648ce5356ea1ebce435b3459fd60.woff2") format("woff2"), url($static-folder-path + "fonts/roboto/df7b648ce5356ea1ebce435b3459fd60.woff") format("woff"), url($static-folder-path + "fonts/roboto/df7b648ce5356ea1ebce435b3459fd60.ttf") format("truetype"), url($static-folder-path + "fonts/roboto/df7b648ce5356ea1ebce435b3459fd60.svg#Roboto Bold V2") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url($static-folder-path + "fonts/roboto/94998475f6aea65f558494802416c1cf.eot");
+  src: url($static-folder-path + "fonts/roboto/94998475f6aea65f558494802416c1cf.eot?#iefix") format("embedded-opentype"), url($static-folder-path + "fonts/roboto/94998475f6aea65f558494802416c1cf.woff2") format("woff2"), url($static-folder-path + "fonts/roboto/94998475f6aea65f558494802416c1cf.woff") format("woff"), url($static-folder-path + "fonts/roboto/94998475f6aea65f558494802416c1cf.ttf") format("truetype"), url($static-folder-path + "fonts/roboto/94998475f6aea65f558494802416c1cf.svg#Roboto Bold V2") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
