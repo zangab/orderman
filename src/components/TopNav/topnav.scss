@@ -1,0 +1,24 @@
+.TopNav{
+  background: $diagonal-gradient-bg-blue;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $color-white;
+  padding-top: 2px;
+
+  .link{
+    margin: 0 24px;
+    padding-top: 2px;
+    .fi::before{
+      color: $color-white;
+      font-size: 22px;
+    }
+  }
+
+  .title{
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 19px;
+  }
+}
