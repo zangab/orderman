@@ -3,13 +3,13 @@
     <router-link :to="{ name: 'kellner-produkte' }" class="link">
       <span class="fi flaticon-cooker"></span>
     </router-link>
-    <router-link :to="{ name: 'login' }" class="link">
+    <router-link :to="{ name: 'kellner-archiv' }" class="link">
       <span class="fi flaticon-archive"></span>
     </router-link>
-    <router-link :to="{ name: 'login' }" class="link">
+    <button class="link button" @click="resetOrder">
       <span class="fi flaticon-trash"></span>
-    </router-link>
-    <router-link :to="{ name: 'login' }" class="link">
+    </button>
+    <router-link :to="{ name: 'home' }" class="link">
       <span class="fi flaticon-right-arrow"></span>
     </router-link>
   </nav>
@@ -21,6 +21,12 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    resetOrder () {
+      // TODO: modal confirm
+      console.log('reset ...')
     }
   }
 }

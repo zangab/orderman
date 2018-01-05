@@ -1,5 +1,4 @@
 .TabNav {
-  background: $wall-color;
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -11,13 +10,25 @@
     padding: 5px 24px 0;
     text-align: center;
     line-height: 75px;
+    border: 0;
     border-right: 1px solid $border-color-base;
     border-top: 1px solid $border-color-base;
+    background: $wall-color;
 
     &:last-child{
-      background: $diagonal-gradient-bg-black;
-      border-top: 1px solid $black-500;
+      background: $diagonal-gradient-bg-grey;
+      // background: $diagonal-gradient-bg-black;
+      // border-top: 1px solid $black-500;
       border-right: 0;
+      .fi::before{
+        color: $color-white;
+      }
+    }
+
+    &.router-link-active{
+      background: $diagonal-gradient-bg-blue;
+      // background-color: $bg-color-base;
+      border-top-color: transparent;
       .fi::before{
         color: $color-white;
       }
@@ -29,6 +40,14 @@
     .fi::before {
       color: $text-color;
       font-size: 24px;
+    }
+  }
+
+  .button{
+    outline: 0;
+    background: $diagonal-gradient-bg-red;
+    .fi::before{
+      color: $color-white;
     }
   }
 }
