@@ -1,0 +1,39 @@
+.ProductListItem {
+  position: relative;
+  display: block;
+  width: calc(33vw - 20px);
+  height: calc(33vw - 20px);
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  border-radius: 4px;
+  margin: 10px;
+  box-shadow: $shadow-1px-down;
+  color: $color-white;
+  user-select: none;
+
+  .name{
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    background: rgba($black-900, 0.8);
+    line-height: 1.1;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .badge{
+    position: absolute;
+    top: 8px; left: 8px;
+    text-align: center;
+    width: 27px; height: 27px;
+    padding: 4px;
+    background: $red-700;
+    border: 2px solid $grey-50;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 15px;
+    font-weight: 800;
+    box-shadow: $shadow-1px-down;
+  }
+}
