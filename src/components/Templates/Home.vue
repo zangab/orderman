@@ -1,9 +1,10 @@
 <template>
-  <div class="hello">
-    <nav class="nav">
-      NAV
-    </nav>
-    <product-list></product-list>
+  <div class="Home">
+    <top-nav></top-nav>
+    <price-bar></price-bar>
+    <router-view class="content"></router-view>
+
+    <tab-nav></tab-nav>
   </div>
 </template>
 
@@ -19,6 +20,19 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
+  @import "../../styles/vars";
+  .Home{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 
+    .content{
+      position: relative;
+      flex: 0 1 auto;
+      max-height: calc(100vh - 290px);
+      overflow-y: scroll;
+    }
+  }
 </style>

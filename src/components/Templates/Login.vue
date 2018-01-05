@@ -1,5 +1,7 @@
 <template>
-  <div class="Login">
+  <div class="Login has-bg-pattern">
+    <router-link :to="{ name: 'home' }">Home</router-link>
+
     <div class="wrapper">
       <h2 class="title">Kirchtiman</h2>
       <form action="" class="form">
@@ -32,12 +34,12 @@ export default {
     position: relative;
     height: 100vh;
     width: 100%;
-    background: $bg-color-base;
 
     .title{
-      padding: 30px 30px 26px;
+      padding: 30px 30px 20px;
       margin-top: 0;
       line-height: 1;
+      font-weight: 800;
       color: $title-color;
       text-transform: uppercase;
       border-bottom: 1px solid $brand-blue-50;
@@ -55,7 +57,7 @@ export default {
     }
 
     .form{
-      padding: 30px 30px 32px;
+      padding: 24px 30px 26px;
     }
 
     .input{
@@ -100,9 +102,13 @@ export default {
       width: 100%;
       border-radius: $border-radius-base;
       user-select: none;
+      cursor: pointer;
       line-height: 2;
       outline: 0;
       box-shadow: $shadow-1px-down;
+      &:active{
+        transform: translateY(2px);
+      }
     }
   }
 </style>
