@@ -1,7 +1,7 @@
-# kirchtiman
+# What is it?
 
-> vueJS project with AT-UI kit and firebase
-this is a project for a club i'm a member of. it's an orderman-system specified for our clubs' needs.
+> this is a project for a club i'm a member of. it's an orderman-system specified for our clubs' needs based on vueJS and google firebase as backend/api.
+
 
 ## Build Setup
 
