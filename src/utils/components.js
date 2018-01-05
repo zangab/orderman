@@ -1,7 +1,11 @@
 import Vue from 'vue'
 
-import ProductList from '@/components/ProductList/List'
+import TopNav from '@/components/TopNav/TopNav'
+import TabNav from '@/components/TabNav/TabNav'
 import ProductListItem from '@/components/ProductListItem/Item'
+import PriceBar from '@/components/PriceBar/PriceBar'
 
-Vue.component('productList', ProductList)
+Vue.component('topNav', TopNav)
+Vue.component('tabNav', TabNav)
 Vue.component('productListItem', ProductListItem)
+Vue.component('priceBar', PriceBar)
