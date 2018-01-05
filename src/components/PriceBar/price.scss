@@ -1,0 +1,21 @@
+.PriceBar{
+  text-align: center;
+  color: $brand-blue-500;
+  padding: 28px 20px 30px;
+  line-height: 1.2;
+  height: 140px;
+
+  strong{
+    font-size: 56px;
+    display: block;
+    font-weight: 600;
+  }
+
+  small{
+    display: block;
+    color: $grey-700;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
