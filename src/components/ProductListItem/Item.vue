@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import Order from '../../utils/order'
+
 export default {
   name: 'ProductList',
   props: [ 'item' ],
@@ -21,15 +23,16 @@ export default {
     update () {
       this.clicks++
       if (this.clicks === 1) {
-        // var self = this
         this.timer = setTimeout(() => {
           this.data += 1
+          Order.add(this.item)
           this.clicks = 0
         }, this.delay)
       } else {
         clearTimeout(this.timer)
         this.data = Math.max(0, this.data - 1)
         this.clicks = 0
+        Order.remove(this.item)
       }
     }
   }

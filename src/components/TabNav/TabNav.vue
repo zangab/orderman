@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import Order from '../../utils/order'
+
 export default {
   name: 'TabNav',
   data () {
@@ -27,6 +29,7 @@ export default {
     resetOrder () {
       // TODO: modal confirm
       console.log('reset ...')
+      Order.reset()
     }
   }
 }

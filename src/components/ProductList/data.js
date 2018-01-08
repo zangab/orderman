@@ -153,7 +153,7 @@ const food = [
   },
   {
     id: 20,
-    img: 'http://mittagstisch-ka.de/uploads/Imbiss_Vincents2.JPG',
+    img: 'http://www.genusslandsuedtirol.it/i/recipe/i50_1.jpg',
     name: 'Schnitzel Kartoffelsalat',
     price: 8.0,
     category: 'food'

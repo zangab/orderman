@@ -1,13 +1,11 @@
 <template>
   <div class="Login has-bg-pattern">
-    <router-link :to="{ name: 'home' }">Home</router-link>
-
     <div class="wrapper">
       <h2 class="title">Kirchtiman</h2>
       <form action="" class="form">
         <input type="email" name="mail" v-model="user" class="input" placeholder="Email">
         <input type="password" name="pw" v-model="pw" class="input" placeholder="Passwort">
-        <button type="button" class="button">Anmelden</button>
+        <button type="button" class="button" @click="doLogin">Anmelden</button>
       </form>
     </div>
   </div>
@@ -21,6 +19,14 @@ export default {
       value: '',
       user: '',
       pw: ''
+    }
+  },
+  methods: {
+    doLogin () {
+      console.log('this:', this)
+      this.$router.push({name: 'kellner-home'})
+      // TODO: firebase login
+      console.log('login ...')
     }
   }
 }

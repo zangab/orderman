@@ -27,8 +27,8 @@
 
     &.router-link-active{
       background: $diagonal-gradient-bg-blue;
-      // background-color: $bg-color-base;
-      border-top-color: transparent;
+      border-top-color: $brand-blue-600;
+      border-right-color: $brand-blue-600;
       .fi::before{
         color: $color-white;
       }
@@ -46,9 +46,10 @@
   .button{
     outline: 0;
     background: $diagonal-gradient-bg-red;
+    border-TOP-color: $red-500;
+    border-right-color: $red-500;
     .fi::before{
       color: $color-white;
     }
   }
 }
-
