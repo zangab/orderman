@@ -48,6 +48,7 @@
     background: $diagonal-gradient-bg-red;
     border-TOP-color: $red-500;
     border-right-color: $red-500;
+    cursor: pointer;
     .fi::before{
       color: $color-white;
     }

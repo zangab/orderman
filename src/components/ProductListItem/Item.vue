@@ -7,10 +7,16 @@
 
 <script>
 import Order from '../../utils/order'
+import EventBus from '../../utils/eventbus'
 
 export default {
   name: 'ProductList',
   props: [ 'item' ],
+  mounted () {
+    EventBus.$on('updatedOrder', (payload) => {
+      if (Object.keys(payload.products).length < 1) this.data = 0
+    })
+  },
   data () {
     return {
       data: 0,
@@ -25,8 +31,8 @@ export default {
       if (this.clicks === 1) {
         this.timer = setTimeout(() => {
           this.data += 1
-          Order.add(this.item)
           this.clicks = 0
+          Order.add(this.item)
         }, this.delay)
       } else {
         clearTimeout(this.timer)
