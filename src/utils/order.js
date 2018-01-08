@@ -21,9 +21,8 @@ function get () {
 }
 
 function add (product) {
-  if (orderList.products.hasOwnProperty(product.id)) {
-    orderList.products[product.id].count += 1
-  } else {
+  if (orderList.products.hasOwnProperty(product.id)) orderList.products[product.id].count += 1
+  else {
     orderList.products[product.id] = {
       count: 1
     }
@@ -34,11 +33,9 @@ function add (product) {
 
 function remove (product) {
   if (orderList.products.hasOwnProperty(product.id)) {
-    if (orderList.products[product.id].count > 1) {
-      orderList.products[product.id].count -= 1
-    } else {
-      delete orderList.products[product.id]
-    }
+    if (orderList.products[product.id].count > 1) orderList.products[product.id].count -= 1
+    else delete orderList.products[product.id]
+
     orderList.total = getTotalAmount()
     EventBus.$emit('updatedOrder', orderList)
   }
@@ -55,6 +52,7 @@ function getTotalAmount () {
 
 function reset () {
   orderList = Object.assign({}, defaultOrder)
+  orderList.products = {}
   EventBus.$emit('updatedOrder', orderList)
 }
 
