@@ -1,5 +1,4 @@
 import EventBus from './eventbus'
-import { drinks, food } from './mockdata'
 
 const defaultOrder = {
   table: 0,
@@ -9,51 +8,71 @@ const defaultOrder = {
   },
   total: 0.00,
   waiterId: 0,
-  products: {},
+  products: [],
   updated_at: null,
   created_at: null
 }
 
 let orderList = Object.assign({}, defaultOrder)
 
-function get () {
-  return orderList
-}
-
 function add (product) {
-  if (orderList.products.hasOwnProperty(product.id)) orderList.products[product.id].count += 1
-  else {
-    orderList.products[product.id] = {
-      count: 1
+  product.inList = false
+  for (let i in orderList.products) {
+    const item = orderList.products[i]
+    if (item.id === product.id) {
+      product.inList = true
+      item.count += 1
     }
+    product.count = item.count
   }
-  orderList.total = getTotalAmount()
-  EventBus.$emit('updatedOrder', orderList)
+  if (!product.inList) {
+    orderList.products.push({
+      id: product.id,
+      price: product.price,
+      count: 1
+    })
+    product.count = 1
+  }
+  if (orderList.products.length === 0) orderList.created_at = new Date()
+  orderList.total = calcTotalAmount()
+
+  EventBus.$emit('updatedOrder', {
+    orderList,
+    itemId: product.id,
+    itemCount: product.count
+  })
 }
 
 function remove (product) {
-  if (orderList.products.hasOwnProperty(product.id)) {
-    if (orderList.products[product.id].count > 1) orderList.products[product.id].count -= 1
-    else delete orderList.products[product.id]
-
-    orderList.total = getTotalAmount()
-    EventBus.$emit('updatedOrder', orderList)
+  for (let i in orderList.products) {
+    const item = orderList.products[i]
+    if (item.id === product.id) {
+      if (item.count > 1) item.count -= 1
+      else orderList.products.splice(i, 1)
+      product.count = item.count
+    }
   }
+  orderList.total = calcTotalAmount()
+  EventBus.$emit('updatedOrder', {
+    orderList,
+    itemId: product.id,
+    itemCount: (orderList.products.hasOwnProperty(product.id) ? orderList.products[product.id].count : 0)
+  })
 }
 
-function getTotalAmount () {
+function calcTotalAmount () {
   let sum = 0
-  for (let prop in orderList.products) {
-    const prod = (drinks.hasOwnProperty(prop) ? drinks[prop] : food[prop])
-    sum += (orderList.products[prop].count * prod.price)
+  for (let i in orderList.products) {
+    const item = orderList.products[i]
+    sum += (item.count * item.price)
   }
   return sum
 }
 
 function reset () {
   orderList = Object.assign({}, defaultOrder)
-  orderList.products = {}
-  EventBus.$emit('updatedOrder', orderList)
+  orderList.products.length = 0
+  EventBus.$emit('resetOrder', orderList)
 }
 
 function cashOut (table) {
@@ -61,8 +80,16 @@ function cashOut (table) {
   reset()
 }
 
+function getTotalAmount () {
+  return orderList.total
+}
+
+function getProducts () {
+  return orderList.products
+}
+
 export default {
-  get,
+  getProducts,
   add,
   remove,
   reset,
