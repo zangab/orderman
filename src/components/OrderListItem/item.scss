@@ -1,0 +1,65 @@
+.OrderListItem{
+  position: relative;
+  background: $brand-blue-300;
+  color: $color-white;
+  line-height: 1.1;
+  user-select: none;
+  padding: 10px 20px;
+  &:active{
+    background: $brand-blue-400;
+  }
+
+  .name{
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // padding-right: 60px;
+  }
+
+  .badge {
+    display: inline-block;
+    position: relative;
+    padding: 15px 25px;
+    border-radius: 25px;
+    background-size: cover;
+    color: $grey-50;
+    margin-right: 10px;
+    font-weight: 700;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+
+    i{
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      font-style: normal;
+      font-size: 14px;
+      z-index: 3;
+      line-height: 1;
+    }
+
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+      background: $radial-gradient-black;
+      border-radius: 25px;
+      z-index: 1;
+      box-shadow: $shadow-1px-down;
+    }
+  }
+  .price {
+    position: absolute;
+    line-height: 50px;
+    top: 10px;
+    right: 20px;
+  }
+}
