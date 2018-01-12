@@ -23,7 +23,6 @@ export default {
   },
   methods: {
     doLogin () {
-      console.log('this:', this)
       this.$router.push({name: 'kellner-home'})
       // TODO: firebase login
       console.log('login ...')

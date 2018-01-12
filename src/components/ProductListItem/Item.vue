@@ -1,25 +1,19 @@
 <template>
   <li class="ProductListItem" :style="{'background-image': 'url(' + item.img + ')'}" @click="update">
-    <span class="badge" v-show="data">{{ data }}</span>
+    <span class="badge" v-show="count">{{ count }}</span>
     <strong class="name">{{ item.name }}</strong>
   </li>
 </template>
 
 <script>
 import Order from '../../utils/order'
-import EventBus from '../../utils/eventbus'
 
 export default {
-  name: 'ProductList',
-  props: [ 'item' ],
-  mounted () {
-    EventBus.$on('updatedOrder', (payload) => {
-      if (Object.keys(payload.products).length < 1) this.data = 0
-    })
-  },
+  name: 'ProductListItem',
+  props: [ 'item', 'count' ],
+  mounted () {},
   data () {
     return {
-      data: 0,
       delay: 300,
       clicks: 0,
       timer: null

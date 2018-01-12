@@ -21,6 +21,7 @@
     line-height: 1.1;
     padding: 8px;
     font-size: 12px;
+    word-break: break-word;
   }
 
   .badge{
@@ -36,5 +37,6 @@
     line-height: 15px;
     font-weight: 800;
     box-shadow: $shadow-1px-down;
+    z-index: 2;
   }
 }

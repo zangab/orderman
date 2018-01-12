@@ -6,23 +6,33 @@
     <router-link :to="{ name: 'kellner-archiv' }" class="link">
       <span class="fi flaticon-archive"></span>
     </router-link>
-    <button class="link button" @click="resetOrder">
+    <button class="link button is-red" @click="resetOrder">
       <span class="fi flaticon-trash"></span>
     </button>
-    <router-link :to="{ name: 'home' }" class="link">
-      <span class="fi flaticon-right-arrow"></span>
-    </router-link>
+    <button :class="['link button is-grey', {'is-allowed': isFilled}]" @click="toOrderList">
+      <span class="fi flaticon-money"></span>
+    </button>
   </nav>
 </template>
 
 <script>
 import Order from '../../utils/order'
+import EventBus from '../../utils/eventbus'
 
 export default {
   name: 'TabNav',
+  mounted () {
+    this.isFilled = Order.getTotalAmount() > 0
+    EventBus.$on('updatedOrder', (payload) => {
+      this.isFilled = Order.getTotalAmount() > 0
+    })
+    EventBus.$on('resetOrder', (payload) => {
+      this.isFilled = false
+    })
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      isFilled: false
     }
   },
   methods: {
@@ -30,6 +40,9 @@ export default {
       // TODO: modal confirm
       console.log('reset ...')
       Order.reset()
+    },
+    toOrderList () {
+      if (Order.getTotalAmount() > 0) this.$router.push({ name: 'kellner-bestellung' })
     }
   }
 }

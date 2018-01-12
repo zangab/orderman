@@ -1,0 +1,20 @@
+.OrderList{
+  position: relative;
+  background: $brand-blue-300;
+  color: $color-white;
+  padding: 10px 0 15px;
+  box-shadow: 0 1px 8px 0 rgba($title-color, 0.3);
+
+  &::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    height: 10px;
+    background-image: url('~@/assets/triangle.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+  }
+
+}

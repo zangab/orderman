@@ -1,18 +1,38 @@
 <template>
   <ul class="OrderList">
-    Order
-    <!-- <product-list-item v-for="(item, index) in data" :key="item.id" :item="item"></product-list-item> -->
+    <order-list-item
+      v-for="item in products"
+      :count="item.count"
+      :product="getProductInfo(item.id)"
+      :key="item.id"
+    ></order-list-item>
   </ul>
 </template>
 
 <script>
-import { list } from './data'
+import Order from '../../utils/order'
+import EventBus from '../../utils/eventbus'
+import { drinks, food } from '../../utils/mockdata'
 
 export default {
   name: 'OrderList',
+  mounted () {
+    this.products = Order.getProducts()
+    EventBus.$on('resetOrder', () => {
+      this.products = this.$set(this, 'products', Order.getProducts())
+      this.$router.push({ name: 'kellner-produkte' })
+    })
+  },
   data () {
     return {
-      data: list
+      drinks,
+      food,
+      products: []
+    }
+  },
+  methods: {
+    getProductInfo (id) {
+      return drinks.hasOwnProperty(id) ? drinks[id] : food[id]
     }
   }
 }

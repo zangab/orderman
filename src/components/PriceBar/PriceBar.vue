@@ -1,6 +1,6 @@
 <template>
-  <div class="PriceBar">
-    <strong>€ {{ data | currency }}</strong>
+  <div :class="['PriceBar', {'is-blue': isBlue}]">
+    <strong>€ {{ sum | currency }}</strong>
     <small>Bestellsumme</small>
   </div>
 </template>
@@ -12,19 +12,25 @@ import EventBus from '../../utils/eventbus'
 export default {
   name: 'PriceBar',
   mounted () {
-    this.data = Order.getTotalAmount()
     EventBus.$on('updatedOrder', (payload) => {
-      this.data = payload.total
+      this.sum = Order.getTotalAmount()
+    })
+    EventBus.$on('resetOrder', () => {
+      this.sum = Order.getTotalAmount()
     })
   },
   data () {
     return {
-      data: 0
+      sum: Order.getTotalAmount(),
+      isBlue: false
     }
   },
-  methods: {
-
-  }
+  watch: {
+    '$route': function (newVal, oldVal) {
+      this.isBlue = this.$route.meta.hasOwnProperty('blueCol') ? this.$route.meta.blueCol : false
+    }
+  },
+  methods: {}
 }
 </script>
 
