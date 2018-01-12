@@ -3,8 +3,9 @@ import Router from 'vue-router'
 
 import Login from '@/components/Templates/Login'
 import Home from '@/components/Templates/Home'
+import KellnerHome from '@/components/Templates/Kellner/Home'
+import KellnerOrder from '@/components/Templates/Kellner/Order'
 import ProductList from '@/components/ProductList/List'
-import OrderList from '@/components/OrderList/OrderList'
 
 Vue.use(Router)
 
@@ -24,7 +25,7 @@ export default new Router({
     {
       path: '/kellner',
       name: 'kellner-home',
-      component: Home,
+      component: KellnerHome,
       children: [
         {
           path: 'produkte',
@@ -34,7 +35,15 @@ export default new Router({
         {
           path: 'archiv',
           name: 'kellner-archiv',
-          component: OrderList
+          component: KellnerOrder
+        },
+        {
+          path: 'bestellung',
+          name: 'kellner-bestellung',
+          component: KellnerOrder,
+          meta: {
+            blueCol: true
+          }
         }
       ]
     }
