@@ -1,8 +1,23 @@
 @import "~at-ui-style/src/variables/index.scss";
 
+$brand-blue-50: #E1F6FA;
+$brand-blue-100: #B3E9F4;
+$brand-blue-200: #81DAEC;
+$brand-blue-300: #4FCBE4;
+$brand-blue-400: #29BFDF;
+$brand-blue-500: #03B4D9;
+$brand-blue-600: #03ADD5;
+$brand-blue-700: #02A4CF;
+$brand-blue-800: #029CCA;
+$brand-blue-800: #018CC0;
+
 $static-folder-path: "./../static/";
-$diagonal-gradient-bg-red: linear-gradient(125deg, $red-300 0%, $red-500 100%);
-$diagonal-gradient-bg-black: linear-gradient(125deg, $black-300 0%, $black-500 100%);
-$diagonal-gradient-bg-grey: linear-gradient(125deg, $grey-100 0%, $grey-500 100%);
-$diagonal-gradient-bg-blue: linear-gradient(125deg, $brand-blue-300 0%, $brand-blue-800 100%);
-$diagonal-gradient-bg-blue-dark: linear-gradient(125deg, $brand-blue-400 0%, $brand-blue-900 100%);
+$diagonal-gradient-bg-red: linear-gradient(125deg, $red-500 0%, $red-300 100%);
+$diagonal-gradient-bg-black: linear-gradient(125deg, $black-500 0%, $black-300 100%);
+$diagonal-gradient-bg-grey: linear-gradient(125deg, $grey-500 0%, $grey-100 100%);
+$diagonal-gradient-bg-blue: linear-gradient(125deg, $brand-blue-600 0%, $brand-blue-300 100%);
+$diagonal-gradient-bg-blue-dark: linear-gradient(125deg, $brand-blue-900 0%, $brand-blue-400 100%);
+$diagonal-gradient-bg-green-dark: linear-gradient(125deg, $green-700 0%, $green-400 100%);
+$radial-gradient-black: radial-gradient(ellipse at center, rgba($black-800, 1) 0%, rgba($black-800, 0) 70%);
+
+
