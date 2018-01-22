@@ -1,6 +1,6 @@
 <template>
   <div class="TopNav">
-    <router-link :to="{ name: 'login' }" class="left link">
+    <router-link :to="{ name: homePath }" class="left link">
       <span class="fi flaticon-building"></span>
     </router-link>
 
@@ -17,10 +17,9 @@
 <script>
 export default {
   name: 'TopNav',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  props: [ 'homePath' ],
+  mounted () {
+    console.log('path', this)
   }
 }
 </script>
