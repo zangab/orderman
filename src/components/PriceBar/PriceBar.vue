@@ -1,5 +1,5 @@
 <template>
-  <div :class="['PriceBar', {'is-blue': isBlue}]">
+  <div :class="['PriceBar', {'is-blue': bluePriceBar}]">
     <strong>€ {{ sum | currency }}</strong>
     <small>Bestellsumme</small>
   </div>
@@ -22,12 +22,12 @@ export default {
   data () {
     return {
       sum: Order.getTotalAmount(),
-      isBlue: false
+      bluePriceBar: this.$route.meta.bluePriceBar || false
     }
   },
   watch: {
     '$route': function (newVal, oldVal) {
-      this.isBlue = this.$route.meta.hasOwnProperty('blueCol') ? this.$route.meta.blueCol : false
+      this.bluePriceBar = this.$route.meta.hasOwnProperty('bluePriceBar') ? this.$route.meta.bluePriceBar : false
     }
   },
   methods: {}
