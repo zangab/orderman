@@ -1,0 +1,23 @@
+.ArchiveList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 60px 0 10px;
+  background-color: $grey-50;
+  border-top: 2px solid $black-50;
+
+  .sectiontitle {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    line-height: 40px;
+    background: $grey-100;
+    font-weight: 600;
+    color: $grey-900;
+    padding: 0 24px;
+    border-top: 1px solid $black-50;
+    border-bottom: 1px solid $black-50;
+    margin-bottom: 10px;
+  }
+
+}
