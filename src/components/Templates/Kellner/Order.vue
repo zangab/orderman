@@ -6,8 +6,13 @@
 </template>
 
 <script>
+import Order from '../../../utils/order'
+
 export default {
   name: 'KellnerOrder',
+  beforeMount () {
+    if (Order.getTotalAmount() === 0) this.$router.push({ name: 'kellner-produkte' })
+  },
   data () {
     return {}
   }
