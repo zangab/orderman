@@ -3,11 +3,12 @@
 
   .list {
     display: flex;
+    flex-wrap: wrap;
   }
 
   .child{
     margin-bottom: 20px;
-    width: 50%
+    width: 100%
   }
 
   h3{
@@ -24,20 +25,6 @@
     padding-left: 4px;
   }
 
-  input{
-    display: block;
-    height: 100%;
-    border-radius: $border-radius-base;
-    border: 0;
-    text-align: right;
-    padding: 2px 20px;
-    font-size: 24px;
-    width: 90%;
-    box-shadow: $shadow-1px-down;
-    outline: 0;
-  }
-
-
   .button{
     border: 0;
     padding: 10px 18px;
@@ -52,6 +39,8 @@
     display: block;
     font-weight: 600;
     outline: 0;
+    margin-top: 20px;
+    cursor: pointer;
 
     &:active{
       transform: translate(0, 2px);
