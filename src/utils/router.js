@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+// Overall
 import Login from '@/components/Templates/Login'
 import Home from '@/components/Templates/Home'
+// Kellner
 import KellnerHome from '@/components/Templates/Kellner/Home'
+import KellnerArchive from '@/components/Templates/Kellner/Archive'
 import KellnerOrder from '@/components/Templates/Kellner/Order'
 import ProductList from '@/components/ProductList/List'
 
@@ -26,6 +28,10 @@ export default new Router({
       path: '/kellner',
       name: 'kellner-home',
       component: KellnerHome,
+      meta: {
+        hidePriceBar: true,
+        showStats: true
+      },
       children: [
         {
           path: 'produkte',
@@ -35,14 +41,19 @@ export default new Router({
         {
           path: 'archiv',
           name: 'kellner-archiv',
-          component: KellnerOrder
+          component: KellnerArchive,
+          meta: {
+            hidePriceBar: true,
+            contentSmall: true
+          }
         },
         {
           path: 'bestellung',
           name: 'kellner-bestellung',
           component: KellnerOrder,
           meta: {
-            blueCol: true
+            bluePriceBar: true,
+            contentSmall: true
           }
         }
       ]
