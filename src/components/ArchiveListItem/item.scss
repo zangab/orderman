@@ -1,0 +1,103 @@
+.ArchiveListItem{
+  width: 100%;
+  border-radius: $border-radius-base;
+  user-select: none;
+  box-shadow: $shadow-1px-down;
+  margin: 0 10px 16px;
+  cursor: pointer;
+  transition: transform 0.1s $ease-in-quad;
+
+  .head{
+    display: flex;
+    padding: 10px 14px;
+    background: $color-white;
+    border-top-left-radius: $border-radius-base;
+    border-top-right-radius: $border-radius-base;
+
+    .status{
+      position: relative;
+      width: 26px;
+      &::before{
+        content: '';
+        position: absolute;
+        height: 18px;
+        width: 18px;
+        top: 3px;
+        right: 0;
+        border-radius: 50%;
+        background: $diagonal-gradient-bg-grey;
+      }
+      &.is-done::before{
+        background: $diagonal-gradient-bg-green-dark;
+      }
+      &.is-in-prep::before{
+        background: $diagonal-gradient-bg-red;
+      }
+    }
+
+    strong{
+      width: calc(100% - 52px);
+
+      i{
+        // font-weight: 500;
+        font-style: normal;
+        padding-left: 16px;
+        color: $grey-700;
+      }
+    }
+  }
+
+  .main{
+    padding: 10px 14px;
+    background: lighten($black-500, 3%);
+    color: $wall-color;
+
+    ul li{
+      display: flex;
+      padding: 5px 0 3px;
+      border-bottom: 1px dashed $black-400;
+      &:last-child{
+        border-bottom: 0;
+      }
+      span{
+        display: block;
+      }
+      .title{
+        width: 70%;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .price{
+        width: 30%;
+        text-align: right;
+      }
+    }
+  }
+
+  .foot{
+    padding: 6px 14px;
+    background: $black-700;
+    color: $wall-color;
+    border-bottom-left-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
+    display: flex;
+    span, strong{
+      width: 50%;
+      display: block;
+    }
+    strong{
+      font-weight: 500;
+      text-align: right;
+    }
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  &:active{
+    transform: translate(0,2px);
+  }
+}
