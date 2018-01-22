@@ -22,7 +22,6 @@ import EventBus from '../../utils/eventbus'
 export default {
   name: 'TabNav',
   mounted () {
-    this.isFilled = Order.getTotalAmount() > 0
     EventBus.$on('updatedOrder', (payload) => {
       this.isFilled = Order.getTotalAmount() > 0
     })
@@ -32,14 +31,26 @@ export default {
   },
   data () {
     return {
-      isFilled: false
+      isFilled: (Order.getTotalAmount() > 0) || false
     }
   },
   methods: {
     resetOrder () {
-      // TODO: modal confirm
-      console.log('reset ...')
-      Order.reset()
+      if (!(Order.getTotalAmount() > 0)) return
+
+      this.$swal({
+        title: 'Sicher?',
+        text: 'Bist du sicher, dass du die aktuelle Bestellung löschen willst?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Löschen',
+        cancelButtonText: 'Abbrechen',
+        confirmButtonColor: '#FF4949'
+      }).then((res) => {
+        if (res.value) {
+          Order.reset()
+        }
+      })
     },
     toOrderList () {
       if (Order.getTotalAmount() > 0) this.$router.push({ name: 'kellner-bestellung' })

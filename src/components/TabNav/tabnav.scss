@@ -35,8 +35,10 @@
   }
 
   .button{
-    outline: 0;
+    border-radius: 0;
     cursor: pointer;
+    outline: 0;
+    user-select: none;
 
     .fi::before{
       color: $color-white;
@@ -55,8 +57,6 @@
     }
     &.is-allowed {
       background: $diagonal-gradient-bg-green-dark;
-      //background: $diagonal-gradient-bg-black;
-      //border-top: 1px solid $black-500;
       border-top: 1px solid $green-900;
     }
   }
